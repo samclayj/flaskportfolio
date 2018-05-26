@@ -1,0 +1,84 @@
+// Color Variables
+$medium-gray: #424242;
+$orange-highlight: #FF6D37;
+
+$off-white: #f9f9f9;
+$dark-gray: #232527;
+$medium-gray: #888f96;
+$blue-highlight: #6c98ce; 
+
+// Your variable overrides
+$primary:       $off-white;
+$secondary:     $dark-gray;
+
+$body-bg: $primary;
+$body-color: $secondary;
+
+$link-color: $blue-highlight;
+$headings-color: $secondary;
+
+$text-muted: $secondary;
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "body-bg": $body-bg,
+  "off-white": $off-white,
+  "dark-gray": $dark-gray,
+  "medium-gray": $medium-gray,
+  "blue-highlight": $blue-highlight,
+), $theme-colors);
+
+// Ripped CSS4 vars out of color map
+:root {
+  // each item in color map
+  @each $name, $color in $theme-colors {
+    --color-#{$name}: $color;
+  }
+}
+
+// Access colors Sass name and get the
+// corresponding CSS variable.
+@function color($color-name) {
+  @return var(--color-#{$color-name});
+}
+
+
+// Required & Optional
+@import "../bootstrap/scss/functions";
+@import "../bootstrap/scss/variables";
+@import "../bootstrap/scss/mixins";
+@import "../bootstrap/scss/root";
+@import "../bootstrap/scss/reboot";
+@import "../bootstrap/scss/type";
+@import "../bootstrap/scss/images";
+@import "../bootstrap/scss/code";
+@import "../bootstrap/scss/grid";
+@import "../bootstrap/scss/tables";
+@import "../bootstrap/scss/forms";
+@import "../bootstrap/scss/buttons";
+@import "../bootstrap/scss/transitions";
+@import "../bootstrap/scss/dropdown";
+@import "../bootstrap/scss/button-group";
+@import "../bootstrap/scss/input-group";
+@import "../bootstrap/scss/custom-forms";
+@import "../bootstrap/scss/nav";
+@import "../bootstrap/scss/navbar";
+@import "../bootstrap/scss/card";
+@import "../bootstrap/scss/breadcrumb";
+@import "../bootstrap/scss/pagination";
+@import "../bootstrap/scss/badge";
+@import "../bootstrap/scss/jumbotron";
+@import "../bootstrap/scss/alert";
+@import "../bootstrap/scss/progress";
+@import "../bootstrap/scss/media";
+@import "../bootstrap/scss/list-group";
+@import "../bootstrap/scss/close";
+@import "../bootstrap/scss/modal";
+@import "../bootstrap/scss/tooltip";
+@import "../bootstrap/scss/popover";
+@import "../bootstrap/scss/carousel";
+@import "../bootstrap/scss/utilities";
+@import "../bootstrap/scss/print";
+

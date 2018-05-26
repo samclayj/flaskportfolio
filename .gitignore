@@ -11,4 +11,5 @@ htmlcov/
 
 dist/
 build/
+portfolio/static/bootstrap/node_modules
 *.egg-info/

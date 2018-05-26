@@ -1,0 +1,177 @@
+/*
+ * Default Screen Size (Large)
+ */
+body {
+    background-color: var(--color-blue-highlight);
+}
+
+.container {
+  max-width: 960px;
+}
+
+.side-info {
+    background-color: var(--color-dark-gray);
+    min-height: 100vh;
+}
+
+#header-toggle {
+    display: none;
+}
+
+#header-toggle-icon[pulse="true"] {
+    animation: pulse 1s infinite;
+    animation-direction: alternate;
+}
+
+@keyframes pulse {
+  0% {
+    color: var(--color-blue-highlight);
+  }
+  100% {
+    color: white;
+  }
+}
+
+.main-content {
+    background-color: var(--color-blue-highlight);
+    padding: 40px;
+    min-height: 100vh;
+}
+
+#smallscreen-info-pane {
+    display: none;
+}
+
+.white-text {
+    color: white;
+}
+
+.profile-picture { }
+
+.mask-profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-color: var(--color-blue-highlight);
+    border-width: 2px;
+    border-style: solid;
+}
+
+.user-select-none {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.connect-icon-container {
+    margin: auto;
+    max-width: 150px;
+    flex-direction: row;
+    align-content: space-between;
+}
+
+.connect-icon-container-desktop {
+    display: flex;
+}
+
+.connect-icon-container-mobile {
+    display: none;
+}
+
+.connect-icon {
+    display: flex;
+    margin: auto;
+    color: var(--color-blue-highlight);
+}
+
+.bio-text {
+    max-width: 350px;
+    margin: auto;
+    margin-top: 15px;
+    line-height: 1.5;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+}
+
+hr {
+    width: 90%;
+    margin: auto;
+    border-width: 1.5px;
+    background-color: var(--color-dark-gray);
+}
+
+/*
+ * Less than 992px behavior.
+ */
+@media (max-width: 991px) {
+    .side-info {
+        min-height: 0px;
+        height: 280px;
+    }
+
+    #header-toggle {
+        display: block;
+        color: var(--color-blue-highlight);
+    }
+
+    .profile-picture {
+        display: none;
+    }
+
+    .connect-icon-container-desktop {
+        display: none;
+    }
+
+    .connect-icon-container-mobile {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        display: flex;
+    }
+
+    .bio-text {
+        display: none;
+    }
+
+    .bio-text-mobile {
+        padding: 30px;
+        color: var(--color-dark-gray);
+        text-align: left;
+        line-height: 1.5;
+        font-size: 14px;
+    }
+}
+
+/*
+ * Between 989px and 620px.
+ */
+@media (max-width: 989px) and (min-width: 620px) {
+    #smallscreen-info-pane[show="true"] {
+        margin-bottom: 30px;
+        display: block;
+    }
+}
+
+/*
+ * Small Screen behavior, less than 620px.
+ */
+@media (max-width: 620px) {
+    .main-content {
+        padding: 0px;
+    }
+
+    #smallscreen-info-pane[show="true"] {
+        margin-bottom: 0px;
+        border: 0px;
+        border-bottom: 1px;
+        border-style: solid;
+        border-color: var(--color-dark-gray);
+        display: block;
+    }
+}
+
+/*
+ * Extra utilities
+ */
+.overflow-hidden { overflow: hidden; }
