@@ -6,7 +6,7 @@ from werkzeug.exceptions import abort
 from portfolio.auth import login_required
 from portfolio.db import get_db
 
-bp = Blueprint('blog', __name__)
+bp = Blueprint('blog', __name__, url_prefix='/blog')
 
 
 @bp.route('/')
