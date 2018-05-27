@@ -86,7 +86,7 @@
 			<div class="my-3 py-3">
                 <h2 class="display-5">About me.</h2>
                 <div class='mx-auto my-3'>
-                    <img src="assets/images/profile.jpg" alt="" class="mask-profile">
+                    <img src="{{ url_for('static', filename='assets/images/profile.jpg') }}" alt="" class="mask-profile">
                 </div>
                 <div class='connect-icon-container connect-icon-container-mobile'>
                     <div class='connect-icon'>
@@ -138,9 +138,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <script src="{{ url_for('static', filename='js/holder.min.js') }}">
-    <script src="{{ url_for('static', filename='js/site.js') }}">
-    <script src="{{ url_for('static', filename='js/type-sim.js') }}">
+    <script src="{{ url_for('static', filename='js/holder.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/site.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/type-sim.js') }}"></script>
     <script>
         window.onload = function() {
             registerEvents();
