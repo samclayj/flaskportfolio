@@ -102,6 +102,45 @@ hr {
     background-color: var(--color-dark-gray);
 }
 
+.experience-title {
+    display: flex;
+    flex-direction: row;
+    padding-left: 35px;
+    padding-right: 35px;
+    font-weight: 600;
+}
+
+.experience-subtitle {
+    display: flex;
+    flex-direction: row;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.experience-component {
+    display: flex;
+}
+
+.experience-body {
+    margin-top: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+    text-align: left;
+    word-break: break-word;;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-right {
+    margin-left: auto;
+}
+
+.align-left {
+    margin-right: auto;
+}
+
 /*
  * Less than 992px behavior.
  */

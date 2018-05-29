@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'UA-119542722-1');
     </script>
 
@@ -15,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!--<link rel="icon" href="../../../../favicon.ico">-->
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}../../../../favicon.ico">
 
     <title>{% block title %}{% endblock %} - Sam Jentsch</title>
 
@@ -52,28 +51,11 @@
                </div>
 
                <div class='connect-icon-container connect-icon-container-desktop'>
-                    <div class='connect-icon'>
-                        <a href='https://www.linkedin.com/in/sam-jentsch/'><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class='connect-icon'>
-                        <a href='https://github.com/samclayj'><i class="fab fa-github"></i></a>
-                    </div>
-                    <div class='connect-icon'>
-                        <a href='https://www.instagram.com/samclayj/'><i class="fab fa-instagram"></i></a>
-                    </div>
-                    <div class='connect-icon'>
-                        <a href=''><i class="fas fa-file-alt"></i></a>
-                    </div>
+                   {% include 'components/icon-links.html' %}
                </div>
 
                <div class='bio-text'>
-                   <p> Growing up, I always loved to program. It wasn't until later that I learned that problem solving is my true passion. This realization led to my double major in computer science and math, two fields that allow for my favorite hobby and passion to become my career. I love to learn, and one of my favorite things about computer science and technology is how rapidly it changes. There's always a new aspect to explore or implement.
-                   </p>
-                   
-                   <p>Some of my greatest accomplishments include winning an innovation contest at General Electric, developing a new STEM section of a freshman outreach program at my university, winning the Outstanding Student Award at NASA, and beginning work at Google.
-                   </p>
-                   <p>My love of learning extends to teaching, and my future goals ultimately include a PH.D. in computer science and teaching at the university level.
-                   </p>
+                   {% include 'components/biotext.html' %}
                </div>
              </div>
            </div>
@@ -81,7 +63,7 @@
 
         <div class="col-lg-9 main-content">
 
-        <!-- Mobile header -->
+          <!-- Mobile header -->
 		  <div id="smallscreen-info-pane" class="bg-primary text-center overflow-hidden">
 			<div class="my-3 py-3">
                 <h2 class="display-5">About me.</h2>
@@ -89,43 +71,17 @@
                     <img src="{{ url_for('static', filename='assets/images/profile.jpg') }}" alt="" class="mask-profile">
                 </div>
                 <div class='connect-icon-container connect-icon-container-mobile'>
-                    <div class='connect-icon'>
-                       <i class="fab fa-linkedin-in"></i>
-                    </div>
-                    <div class='connect-icon'>
-                       <i class="fab fa-github"></i>
-                    </div>
-                    <div class='connect-icon'>
-                       <i class="fab fa-instagram"></i>
-                    </div>
-                    <div class='connect-icon'>
-                       <i class="fas fa-file-alt"></i>
-                    </div>
+                   {% include 'components/icon-links.html' %}
                </div>
 			  <p class="lead">Something witty should go here eventually.</p>
               <hr>
                <div class='bio-text-mobile'>
-                   <p> Growing up, I always loved to program. It wasn't until later that I learned that problem solving is my true passion. This realization led to my double major in computer science and math, two fields that allow for my favorite hobby and passion to become my career. I love to learn, and one of my favorite things about computer science and technology is how rapidly it changes. There's always a new aspect to explore or implement.
-                   </p>
-                   
-                   <p>Some of my greatest accomplishments include winning an innovation contest at General Electric, developing a new STEM section of a freshman outreach program at my university, winning the Outstanding Student Award at NASA, and beginning work at Google.
-                   </p>
-                   <p>My love of learning extends to teaching, and my future goals ultimately include a PH.D. in computer science and teaching at the university level.
-                   </p>
+                   {% include 'components/biotext.html' %}
                </div>
 			</div>
 		  </div>
 
-		  <div class="bg-primary text-center overflow-hidden">
-			<div class="my-3 py-3">
-			  <h2 class="display-5">Another headline</h2>
-			  <p class="lead">And an even wittier subheading.</p>
-              {% block card %}{% endblock %}
-              {% for message in get_flashed_messages() %}
-                  <div class="flash">{{ message }}</div>
-              {% endfor %}
-			</div>
-		  </div>
+          {% block card %}{% endblock %}
 		</div>
 
 	  </div>

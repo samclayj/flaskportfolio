@@ -1,7 +1,52 @@
 {% extends 'navigation-base.html' %}
 
+{% block title %}Resume{% endblock %}
+
 {% block card %}
     <!-- Content will be inside the primary card view of the base
          template-->
-    <p>Testing out the resume injection.</p>
+    <div class="bg-primary text-center overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5">Work Experience</h2>
+        </div>
+
+        <hr>
+
+        <div class="my-3 py-3">
+
+            <!-- Google -->
+            <div class="experience-title">
+                <div class="experience-component">
+                    Google
+                </div>
+                <div class="experience-component align-right">
+                    July 2017 - Present
+                </div>
+            </div>
+
+            <div class="experience-subtitle">
+                <div class="experience-component">
+                    Software Engineer
+                </div>
+                <div class="experience-component align-right">
+                    Mountain View, CA
+                </div>
+            </div>
+
+            <div class="experience-body">
+                <ul>
+                    <li>Primary owner of 3 web applications responsible for interacting with a proprietary testing infrastructure. Optimized load times to improve performance by ~50%.</li>
+                    <li>Primary owner of a comprehensive service for highly configurable hardware regression testing on fleets of machines.</li>
+                    <li>Responsible for gathering requirements from cross functional teams to improve user experience.</li>
+                    <li>Wrote design documents for feature and architecture changes to gather design input from team members.</li>
+                    <li>Led design and planning efforts spanning 1+ years.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
 {% endblock %}
