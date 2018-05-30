@@ -12,7 +12,7 @@
 
         <hr>
 
-        <div class="my-3 py-3">
+        <div class="resume-container my-3 py-3">
 
             <!-- Google -->
             <div class="experience-title">
@@ -99,8 +99,90 @@
                 </ul>
             </div>
 
+            <!-- Stephen F. Austin State University -->
+            <div class="experience-title">
+                <div class="experience-component">
+                    Stephen F. Austin State University
+                </div>
+                <div class="experience-component align-right">
+                    August 2013 - May 2016
+                </div>
+            </div>
+
+            <div class="experience-subtitle">
+                <div class="experience-component">
+                    Teacher's Assistant
+                </div>
+                <div class="experience-component align-right">
+                    Nacogdoches, TX
+                </div>
+            </div>
+
+            <div class="experience-body">
+                <ul>
+                    <li>Lead Teacher’s Assistant for Data Structures course in charge of grading all homework/projects for 80 students.</li>
+                    <li>Lectured course periods and assisted students in learning important concepts.</li>
+                    <li>Developed a new section of SFA 101, the freshman success class for assisting and mentoring STEM students.</li>
+                </ul>
+            </div>
+
+            <!-- GE 2 -->
+            <div class="experience-title">
+                <div class="experience-component">
+                    General Electric
+                </div>
+                <div class="experience-component align-right">
+                    June 2015 - August 2015
+                </div>
+            </div>
+
+            <div class="experience-subtitle">
+                <div class="experience-component">
+                    Intern (Infrastructure)
+                </div>
+                <div class="experience-component align-right">
+                    Houston, TX
+                </div>
+            </div>
+
+            <div class="experience-body">
+                <ul>
+                    <li>Worked on infrastructure migration project upgrading the company’s Enterprise Resource Planning systems.</li>
+                    <li>Developed plans for migration and coordinated 130 application teams through testing and transition phases.</li>
+                    <li>Won 1st Place in <em>GE Innovation Contest</em> for creating a factory analytics tool with a Raspberry Pi.</li>
+                </ul>
+            </div>
+
+            <!-- GE 1 -->
+            <div class="experience-title">
+                <div class="experience-component">
+                    General Electric
+                </div>
+                <div class="experience-component align-right">
+                    June 2014 - August 2014
+                </div>
+            </div>
+
+            <div class="experience-subtitle">
+                <div class="experience-component">
+                    Intern (Security)
+                </div>
+                <div class="experience-component align-right">
+                    Houston, TX
+                </div>
+            </div>
+
+            <div class="experience-body">
+                <ul>
+                    <li>Worked on on cybersecurity team to evaluate security products, research bad actors, and report on threatscapes.</li>
+                    <li>Used threat analysis/mitigation tools to track malware and perform computer forensics.</li>
+                    <li>Developed a cyber intelligence portal to consolidate and report interactive/real-time threat information.</li>
+                </ul>
+            </div>
         </div>
     </div>
+
+   {% include 'resume/education.html' %}
 
     {% for message in get_flashed_messages() %}
       <div class="flash">{{ message }}</div>
