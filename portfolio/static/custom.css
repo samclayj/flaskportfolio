@@ -1,8 +1,10 @@
+
 /*
  * Default Screen Size (Large)
  */
 body {
     background-color: var(--color-blue-highlight);
+    font-size: 16px;
 }
 
 .scroll-in {
@@ -223,6 +225,14 @@ hr {
         border-style: solid;
         border-color: var(--color-dark-gray);
         display: block;
+    }
+
+    .experience-component {
+        font-size: .9rem;
+    }
+
+    .experience-body {
+        font-size: .9rem;
     }
 }
 
