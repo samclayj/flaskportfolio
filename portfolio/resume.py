@@ -5,6 +5,7 @@ from werkzeug.exceptions import abort
 
 bp = Blueprint('resume', __name__)
 
+
 @bp.route('/')
 def index():
     return render_template('resume/resume.html')
