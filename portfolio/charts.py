@@ -6,6 +6,7 @@ class ChartTypes():
     """ Add additional chart types here as they are used.
     """
     LINE = 'line'
+    BUBBLE = 'bubble'
 
 
 class Chart:
@@ -38,6 +39,10 @@ class Chart:
         """ Dictionary of options for the chart.
         """
         self.chart_dict['options'] = options_dict
+
+
+    def set_single_option(self, key, value):
+        self.chart_dict['options'][key] = value
 
 
     def create_dataset(self, label, backgroundColor, borderColor, data):

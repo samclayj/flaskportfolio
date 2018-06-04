@@ -21,6 +21,8 @@ def charts():
     data = [0, 10, 5, 2, 20, 30, 45]
     data2 = [0, 20, 1, 8, 30, 50, 25]
 
+    bubbleData = [{'x': 1, 'y': 10, 'r': 50}, {'x': 2, 'y': 10, 'r': 30}]
+
     chart = Chart(ChartTypes.LINE)
     chart.set_labels(labels)
     chart.create_and_add_dataset(
@@ -35,4 +37,14 @@ def charts():
             borderColor='rgb(255, 99, 132)',
             data=data2)
 
-    return render_template('charts/test-chart.html', data=chart.get_nonescaped_json())
+
+    bubbleChart = Chart(ChartTypes.BUBBLE)
+    bubbleChart.create_and_add_dataset(
+            label='Bubble dataset',
+            bgColor='blue',
+            borderColor='green',
+            data=bubbleData)
+
+    return render_template('charts/test-chart.html',
+            chart=chart.get_nonescaped_json(),
+            bubbleChart=bubbleChart.get_nonescaped_json())
