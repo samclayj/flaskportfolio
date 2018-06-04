@@ -7,6 +7,7 @@ class ChartTypes():
     """
     LINE = 'line'
     BUBBLE = 'bubble'
+    HORIZONTAL_BAR = 'horizontalBar'
 
 
 class Chart:
