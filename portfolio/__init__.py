@@ -6,6 +6,8 @@ from . import auth
 from . import blog
 from . import resume
 
+import logging
+
 def create_app(test_config=None):
     """Application factory function."""
     # Create application (instance of the Flask class).
