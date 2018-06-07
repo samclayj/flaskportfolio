@@ -5,7 +5,7 @@
 {% block card %}
     <!-- Content will be inside the primary card view of the base
          template-->
-    <div class="bg-primary text-center overflow-hidden">
+    <div class="card-box bg-primary text-center overflow-hidden">
         <div class="my-3 py-3">
           <h2 class="display-5">Chart</h2>
         </div>
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="mt-3 scroll-in bg-primary text-center overflow-hidden">
+    <div class="mt-3 scroll-in card-box bg-primary text-center overflow-hidden">
         <div class="my-3 py-3">
           <h2 class="display-5">Chart</h2>
         </div>
@@ -28,6 +28,34 @@
 
         <div class="container my-3 py-3">
             <canvas id="test-chart-2">
+
+            </canvas>
+        </div>
+    </div>
+
+    <div class="mt-3 scroll-in card-box bg-primary text-center overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5">Chart</h2>
+        </div>
+
+        <hr>
+
+        <div class="container my-3 py-3">
+            <canvas id="bar-chart-horizontal">
+
+            </canvas>
+        </div>
+    </div>
+
+    <div class="mt-3 scroll-in card-box bg-primary text-center overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5">Chart</h2>
+        </div>
+
+        <hr>
+
+        <div class="container my-3 py-3">
+            <canvas id="doughnut">
 
             </canvas>
         </div>
@@ -44,5 +72,69 @@
 		let ctx2 = document.getElementById('test-chart-2').getContext('2d');
         let chart = new Chart(ctx, {{ chart }});
         let chart2 = new Chart(ctx2, {{ bubbleChart }});
+
+        let color1 = "#233347";
+        let color2 = "#618DC7";
+        let color3 = "#A4B7D0";
+        let color4 = "#383F47";
+        let color5 = "#486994";
+
+
+		new Chart(document.getElementById("bar-chart-horizontal"), {
+			type: 'horizontalBar',
+			data: {
+			  labels: ["JavaScript", "HTML/CSS", "Python", "Java", "SQL", "C", "C++", "Objective-C"],
+			  datasets: [
+				{
+				  label: "Programming Language Knowledge",
+				  backgroundColor: [color1, color2, color3, color4, color5, color1, color2, color3],
+				  data: [100, 100, 80, 80, 70, 50, 70, 60]
+				}
+			  ]
+			},
+			options: {
+			  legend: { display: false },
+              tooltips: { enabled: false },
+			  title: {
+				display: true,
+				text: 'Programming language proficiency'
+			  },
+              scales: {
+                  xAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                      },
+                  }],
+              },
+			}
+		});
+
+		new Chart(document.getElementById("doughnut"), {
+			type: 'doughnut',
+			data: {
+			  labels: ["JavaScript", "HTML/CSS", "Python", "Java", "SQL", "C", "C++", "Objective-C"],
+			  datasets: [
+				{
+				  label: "Programming Language Knowledge",
+				  backgroundColor: [color1, color2, color3, color4, color5, color1, color2, color3],
+				  data: [100, 100, 80, 80, 70, 50, 70, 60]
+				}
+			  ]
+			},
+			options: {
+			  legend: { display: false },
+			  title: {
+				display: true,
+				text: 'Programming language proficiency'
+			  },
+              scales: {
+                  xAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                      },
+                  }],
+              },
+			}
+		});
     </script>
 {% endblock %}
