@@ -104,11 +104,18 @@
     <script src="{{ url_for('static', filename='js/site.js') }}"></script>
     <script src="{{ url_for('static', filename='js/type-sim.js') }}"></script>
     <script src="{{ url_for('static', filename='js/scrollin.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chart-helper.js') }}"></script>
     <script>
         window.onload = function() {
             registerEvents();
             startTyping();
         };
+        $(document).on("scroll", function () {
+            const pageTop = $(document).scrollTop();
+            const pageBottom = pageTop + $(window).height();
+            ChartHelper.chartAnimate(pageTop, pageBottom);
+            ScrollIn.scrollInBehavior(pageTop, pageBottom);
+        });
     </script>
     {% block script %}{% endblock %}
   </body>

@@ -182,10 +182,89 @@
         </div>
     </div>
 
-   {% include 'resume/awards.html' %}
-   {% include 'resume/education.html' %}
+    <div class="card-box bg-primary text-center overflow-hidden">
+        <div class="my-3 py-3 scroll-in">
+          <h2 class="display-5">Programming Languages</h2>
+        </div>
+
+        <hr>
+
+        <div class="container my-3 py-3 scroll-in">
+            <canvas id="language-chart">
+
+            </canvas>
+        </div>
+    </div>
+
+    <div class="card-box bg-primary text-center overflow-hidden">
+        <div class="my-3 py-3 scroll-in">
+          <h2 class="display-5">Education</h2>
+        </div>
+
+        <hr>
+        <div class="resume-container scroll-in my-3 py-3">
+            <div class="experience-title">
+                <div class="experience-component">
+                    B.S. Computer Science/Math
+                </div>
+                <div class="experience-component align-right">
+                    May 2017
+                </div>
+            </div>
+
+            <div class="experience-subtitle">
+                <div class="experience-component">
+                    Summa Cum laude, GPA 3.97/4.0
+                </div>
+                <div class="experience-component align-right">
+                    Nacogdoches, TX
+                </div>
+            </div>
+
+            <div class="experience-body">
+                <ul>
+                    <li>President and Member, <a href='http://upe.acm.org'>Upsilon Pi Epsilon</a> (Computer Science Honors Society)</li>
+                    <li>Member, <a href=http://pme-math.org/what-is-pme'>Pi Mu Epsilon</a> (Mathematics Honors Society)</li>
+                    <li>University Scholar and Member, SFA School of Honors</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     {% for message in get_flashed_messages() %}
       <div class="flash">{{ message }}</div>
     {% endfor %}
+{% endblock %}
+
+{% block script %} 
+    <script>
+        ChartHelper.registerChart('language-chart', {
+			type: 'horizontalBar',
+			data: {
+			  labels: ["JavaScript", "HTML/CSS", "Python", "Java", "SQL", "C", "C++", "Objective-C"],
+			  datasets: [
+				{
+				  label: "Programming Language Knowledge",
+				  backgroundColor: ChartHelper.randomColors(8),
+				  data: [100, 100, 80, 80, 70, 50, 70, 60]
+				}
+			  ]
+			},
+			options: {
+			  legend: { display: false },
+              tooltips: { enabled: false },
+			  title: {
+				display: true,
+				text: 'Programming language proficiency'
+			  },
+              scales: {
+                  xAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                      },
+                  }],
+              },
+			}
+		});
+    </script>
 {% endblock %}
