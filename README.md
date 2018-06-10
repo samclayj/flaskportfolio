@@ -120,7 +120,8 @@ sudo ufw allow 'Nginx Full'
 > Note: make sure that the configuration is sym linked to `/etc/nginx/sites-enabled/<your-config>`.  
 
 7. Configure and enable a systemd service
-```/etc/systemd/system/portfolio.service
+```
+# /etc/systemd/system/portfolio.service
 [Unit]
 Description=uWSGI instance to serve myproject
 After=network.target
@@ -136,10 +137,13 @@ ExecStart=/home/sammy/myproject/myprojectenv/bin/uwsgi --ini myproject.ini
 WantedBy=multi-user.target
 ```
 
+Enable the service
+
 ```
 sudo systemctl start myproject
 sudo systemctl enable myproject
-```Enable the service
+```
+
 
 ### Resources
 [Deploy to Production — Flask 1.0.2 documentation](http://flask.pocoo.org/docs/1.0/tutorial/deploy/)
@@ -147,6 +151,3 @@ sudo systemctl enable myproject
 [uWSGI — Flask 1.0.2 documentation](http://flask.pocoo.org/docs/1.0/deploying/uwsgi/)
 
 [Digital Ocean Flask Applications](bear://x-callback-url/open-note?id=F428DD2C-9FD5-4596-8A2F-EAC4A2332239-938-000013EF4D8670E2)
-
-#web/portfolio
-
