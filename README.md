@@ -150,4 +150,4 @@ sudo systemctl enable myproject
 
 [uWSGI — Flask 1.0.2 documentation](http://flask.pocoo.org/docs/1.0/deploying/uwsgi/)
 
-[Digital Ocean Flask Applications](bear://x-callback-url/open-note?id=F428DD2C-9FD5-4596-8A2F-EAC4A2332239-938-000013EF4D8670E2)
+[Digital Ocean Flask Applications](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-16-04)
