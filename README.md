@@ -52,6 +52,70 @@ source venv/bin/activate
 pip install uwsgi flask
 ```
 
+6. **Modify Nginx Configuration**
+[Proxying web apps with Nginx](https://gist.github.com/soheilhy/8b94347ff8336d971ad0)
+
+```/etc/nginx/sites-available/<your-config>
+server {
+    listen 80;
+    server_name server_domain_or_IP;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/sammy/myproject/myproject.sock;
+    }
+}
+```Proxies requests to locally running applications.
+
+```Test config for errors
+sudo nginx -t
+```
+
+``` Reload the configuration.
+nginx -s reload
+```
+
+```Restart nginx
+sudo systemctl restart nginx
+```
+
+```Disable port 5000 access and enable Nginx
+sudo ufw delete allow 5000
+sudo ufw allow 'Nginx Full'
+```
+
+> Note: make sure that the configuration is sym linked to `/etc/nginx/sites-enabled/<your-config>`.  
+
+7. Configure and enable a systemd service
+
+/etc/systemd/system/portfolio.service
+```
+[Unit]
+Description=uWSGI instance to serve myproject
+After=network.target
+
+[Service]
+User=sammy
+Group=www-data
+WorkingDirectory=/home/sammy/myproject
+Environment="PATH=/home/sammy/myproject/myprojectenv/bin"
+ExecStart=/home/sammy/myproject/myprojectenv/bin/uwsgi --ini myproject.ini
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```
+sudo systemctl start myproject
+sudo systemctl enable myproject
+```Enable the service
+
+### Refresh Served Application with Changes
+```
+sudo systemctl stop myproject
+sudo systemctl start myproject
+```
+
 ### Run Flask App in Debug
 1. **Enable port 5000**
 ```
@@ -84,66 +148,6 @@ export FLASK_ENV=development
 ```Run development server
 flask run
 ```
-
-6. **Modify Nginx Configuration**
-[Proxying web apps with Nginx](https://gist.github.com/soheilhy/8b94347ff8336d971ad0)
-
-```/etc/nginx/sites-available/<your-config>
-server {
-    listen 80;
-    server_name server_domain_or_IP;
-
-    location / {
-        include uwsgi_params;
-        uwsgi_pass unix:/home/sammy/myproject/myproject.sock;
-    }
-}
-``` Proxies requests to locally running applications.
-
-```Test config for errors
-sudo nginx -t
-```
-
-``` Reload the configuration.
-nginx -s reload
-```
-
-```Restart nginx
-sudo systemctl restart nginx
-```
-
-
-```Disable port 5000 access and enable Nginx
-sudo ufw delete allow 5000
-sudo ufw allow 'Nginx Full'
-```
-> Note: make sure that the configuration is sym linked to `/etc/nginx/sites-enabled/<your-config>`.  
-
-7. Configure and enable a systemd service
-```
-# /etc/systemd/system/portfolio.service
-[Unit]
-Description=uWSGI instance to serve myproject
-After=network.target
-
-[Service]
-User=sammy
-Group=www-data
-WorkingDirectory=/home/sammy/myproject
-Environment="PATH=/home/sammy/myproject/myprojectenv/bin"
-ExecStart=/home/sammy/myproject/myprojectenv/bin/uwsgi --ini myproject.ini
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Enable the service
-
-```
-sudo systemctl start myproject
-sudo systemctl enable myproject
-```
-
 
 ### Resources
 [Deploy to Production — Flask 1.0.2 documentation](http://flask.pocoo.org/docs/1.0/tutorial/deploy/)
