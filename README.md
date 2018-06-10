@@ -55,7 +55,9 @@ pip install uwsgi flask
 6. **Modify Nginx Configuration**
 [Proxying web apps with Nginx](https://gist.github.com/soheilhy/8b94347ff8336d971ad0)
 
-```/etc/nginx/sites-available/<your-config>
+Proxies requests to locally running applications.
+/etc/nginx/sites-available/<your-config>
+```
 server {
     listen 80;
     server_name server_domain_or_IP;
@@ -65,21 +67,25 @@ server {
         uwsgi_pass unix:/home/sammy/myproject/myproject.sock;
     }
 }
-```Proxies requests to locally running applications.
+```
 
-```Test config for errors
+Test config for errors:
+```
 sudo nginx -t
 ```
 
-``` Reload the configuration.
+Reload the configuration:
+``` 
 nginx -s reload
 ```
 
-```Restart nginx
+Restart nginx:
+```
 sudo systemctl restart nginx
 ```
 
-```Disable port 5000 access and enable Nginx
+Disable port 5000 access and enable Nginx:
+```
 sudo ufw delete allow 5000
 sudo ufw allow 'Nginx Full'
 ```
@@ -105,10 +111,11 @@ ExecStart=/home/sammy/myproject/myprojectenv/bin/uwsgi --ini myproject.ini
 WantedBy=multi-user.target
 ```
 
+Enable the service:
 ```
 sudo systemctl start myproject
 sudo systemctl enable myproject
-```Enable the service
+```
 
 ### Refresh Served Application with Changes
 ```
@@ -135,7 +142,9 @@ flask init-db
 3. Run the Application in Debug Mode
 
 *Method 1: uwsgi*
-```Start uwsgi on port 5000 (uses wsgi.py as hook)
+
+Start uwsgi on port 5000 (uses wsgi.py as hook):
+```
 uwsgi --socket 0.0.0.0:5000 --protocol=http -w wsgi:app
 ```
 
@@ -145,7 +154,8 @@ export FLASK_APP=portfolio
 export FLASK_ENV=development
 ```
 
-```Run development server
+Run development server:
+```
 flask run
 ```
 
@@ -155,3 +165,6 @@ flask run
 [uWSGI — Flask 1.0.2 documentation](http://flask.pocoo.org/docs/1.0/deploying/uwsgi/)
 
 [Digital Ocean Flask Applications](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-16-04)
+
+#web/portfolio
+
