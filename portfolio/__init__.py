@@ -8,6 +8,7 @@ from . import resume
 
 import logging
 
+
 def create_app(test_config=None):
     """Application factory function."""
     # Create application (instance of the Flask class).
@@ -41,3 +42,7 @@ def create_app(test_config=None):
 
     return app
 
+app = create_app()
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')

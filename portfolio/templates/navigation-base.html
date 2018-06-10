@@ -109,6 +109,11 @@
         window.onload = function() {
             registerEvents();
             startTyping();
+
+            const pageTop = $(document).scrollTop();
+            const pageBottom = pageTop + $(window).height();
+            ChartHelper.chartAnimate(pageTop, pageBottom);
+            ScrollIn.scrollInBehavior(pageTop, pageBottom);
         };
         $(document).on("scroll", function () {
             const pageTop = $(document).scrollTop();

@@ -34,7 +34,7 @@ $theme-colors: map-merge((
 :root {
   // each item in color map
   @each $name, $color in $theme-colors {
-    --color-#{$name}: $color;
+    --color-#{$name}: #{$color};
   }
 }
 
